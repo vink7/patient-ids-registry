@@ -6,7 +6,10 @@ ruby '2.7.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
+
+gem 'pg_search'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -23,8 +26,19 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+gem 'aws-sdk-s3', '~> 1.112'
+
+gem 'except_nested'
+
+gem 'webpacker', github: 'rails/webpacker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem "rspec-rails", "~> 4.0"
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'faker', '~> 1.6', '>= 1.6.6'
+  gem 'figaro'
+
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -33,12 +47,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
+end
+
+group :test do
+  gem "rspec_junit_formatter", "~> 0.4.1"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem "rspec-rails", "~> 4.0", :groups => [:development, :test]
-
-gem "rspec_junit_formatter", "~> 0.4.1", :group => :test
-

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="column">
+    <%= form_for @patient do |f| %>
+      <p><%= f.text_field :first_name, placeholder: 'First name'%></p>
+      <p><%= f.text_field :last_name, placeholder: 'Last name'%></p>
+      <p><%= f.text_field :email, placeholder: 'user@domain.com' %></p>
+      <p><%= f.text_field :dob, placeholder: 'Date of Birth' %></p>
+      <%= f.fields_for :identification, :html => { :multipart => true } do |id_builder| %></p>
+      <p>  <%= id_builder.text_field :id_number, placeholder: 'ID #'%></p>
+      <p>  <%= id_builder.text_field :state_issuer, placeholder: 'State Issued'%></p>
+      <p>  <%= id_builder.text_field :exp_date, placeholder: 'Exp Date'%></p>
+      <p>  <%= id_builder.file_field :file, placeholder: 'File'%></p>
+      <% end %>
+      <%= f.fields_for :rec, :html => { :multipart => true } do |rec_builder| %></p>
+      <p>  <%= rec_builder.text_field :rec_number, placeholder: 'ID #'%></p>
+      <p>  <%= rec_builder.text_field :valid_state, placeholder: 'Valid State'%></p>
+      <p>  <%= rec_builder.text_field :physician_issuer, placeholder: 'Physician Issuer'%></p>
+      <p>  <%= rec_builder.text_field :exp_date, placeholder: 'Exp Date'%></p>
+      <p>  <%= rec_builder.file_field :file, placeholder: 'File'%></p>
+      <% end %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+
+</body>
+</html>
