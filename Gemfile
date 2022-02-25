@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4'
+ruby '2.7.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -29,8 +29,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'aws-sdk-s3', '~> 1.112'
 
 gem 'except_nested'
-
-gem 'webpacker', github: 'rails/webpacker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
