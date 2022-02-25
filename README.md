@@ -1,3 +1,9 @@
+Ruby 2.7.5
+Rails 6.1.4
+
+Test run: rspec spec
+https://fathomless-reaches-43955.herokuapp.com/
+
 # Scenario
 In many jurisdictions where cannabis is legal for medical use, providers must maintain current records for their patients in case of compliance audit. Many providers, commonly known as “dispensaries”, turn to Software-as-a-Service solutions to maintain their patient database.
 
