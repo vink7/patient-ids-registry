@@ -20,11 +20,11 @@ class PatientsController < ApplicationController
 
   def index
     @patients = Patient.all
-    render json: @patients.to_json(:include => :identification, :methods => [:id_expired?, :rec_expired?])
+    render json: @patients.to_json(:include => [:identification, :rec], :methods => [:id_expired?, :rec_expired?])
   end
 
   def show
-    render json: @patient.to_json(:include => :identification)
+    render json: @patient.to_json(:include => [:identification, :rec], :methods => [:id_expired?, :rec_expired?])
   end
 
   def update
